@@ -8,8 +8,7 @@ const GlobalStore = props => {
       "Props Undefined. You probably mixed up betweenn default/named import"
     );
   const { load, ...rest } = props;
-  const { reducer, initialState } = load;
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(load.reducer, load.initialState);
 
   return <AppContext.Provider value={{ state, dispatch }} {...rest} />;
 };
